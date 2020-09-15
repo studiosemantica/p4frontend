@@ -123,17 +123,18 @@ Message Icon in Navbar links to list view on Mobile | H | 0hr | 0hr | 0hr|
 Refactored into Vue | H | 0hr | 0hr | 0hr|
 Research | H | 0hr | 0hr | 0hr|	
 Troubleshooting | H | 0hr | 0hr | 0hr|	
-Deployment on Netlify and Testing | H | 0hr | 0hr | 0hr|	
+Deployment on Netlify and Testing | H | 0hr | 0hr | 0hr|
+Total | H | 0hr | 0hr | 0hr|
 
-#### PostMVP
+## PostMVP
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-- Search list function 
-- Implement user endpoints from SoundCloud's API | H | 0hr | 0hr | 0hr|	
-- Lower nav bar with new message option | H | 0hr | 0hr | 0hr|	
-- Drop-down menu option to select user from database| H | 0hr | 0hr | 0hr|	
-- Footer with social links and return to top| H | 0hr | 0hr | 0hr|	
+Search list function | H | 0hr | 0hr | 0hr|	
+Implement user endpoints from SoundCloud's API | H | 0hr | 0hr | 0hr|	
+Lower nav bar with new message option | H | 0hr | 0hr | 0hr|	
+Drop-down menu option to select user from database| H | 0hr | 0hr | 0hr|	
+Footer with social links and return to top| H | 0hr | 0hr | 0hr|	
 
 ## Additional Libraries
 - Vue
