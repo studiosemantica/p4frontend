@@ -127,7 +127,11 @@ export default {
 <style>
 .header {
     width: 90%;
-    margin: 10px auto
+    margin: 0;
+}
+
+.hero {
+  margin:-30px;
 }
 
 </style>
