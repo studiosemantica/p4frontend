@@ -1,13 +1,19 @@
 <template>
   <div id="app">
     <div id="nav">
-      <Header/>
 
-      
+      <Header/>
     </div>
-    <router-view/>
-    <Footer/>
+
+      <router-link to="/Page2">Page2</router-link>
+
+      <router-link to="/Login">Login</router-link>
+      <router-view/>    
+      <Footer/>
+
+
   </div>
+      
 </template>
 
 <script>
@@ -34,7 +40,7 @@ export default {
 }
 
 #nav {
-  padding: 30px;
+  padding: 0px;
 }
 
 #nav a {
