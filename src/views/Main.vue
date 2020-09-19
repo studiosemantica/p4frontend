@@ -11,10 +11,8 @@ import Navbar from '../components/Navbar.vue'
 // import Collapse from '../components/Collapse.vue'
 
 export default {
-  name: 'Home',
+  name: 'Main',
   components: {
-    // HelloWorld,
-    // Collapse,
     Navbar
   }
 }

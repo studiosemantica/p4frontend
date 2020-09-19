@@ -5,17 +5,8 @@
        <router-link to="/Home">Home</router-link>
        <router-link to="/Login">Login</router-link> -->
        <router-view @loggedIn="login($event)"/>
-
-
-
     </div>
-
-  
       <Footer/>
-
-    
-
-
   </div>
       
 </template>
@@ -27,7 +18,6 @@ import Footer from './components/Footer'
 export default {
   name: 'App',
   components: {
-  
     Footer,
   },
   data:function(){
@@ -42,7 +32,7 @@ export default {
       console.log("event heard")
       this.loggedIn = true
       this.tokens = event
-      this.$router.push('/Page2')
+      this.$router.push('/main')
     }
   }
   
