@@ -27,18 +27,17 @@
   <div class="hero-body">
     <div class="container has-text-centered">
       <div>
-        <b-field label="Username"
+        <b-field label="Create Username:"
             type="is-success"
             message="This username is available">
-            <input type="text" v-model="username" value="username" maxlength="30">
+            <b-input value="johnsilver" maxlength="30"></b-input>
         </b-field>
 
-        <b-field label="Password"
+        <b-field label="Create Password:"
             type="is-warning"
             :message="['Password is too short', 'Password must have at least 8 characters']">
-            <input type="password" v-model="password" value='123' maxlength="30">
+            <b-input value="123" type="password" maxlength="30"></b-input>
         </b-field>
-            <button class="button is-danger" @click="handleLogin">Log In</button>
         </div>
     </div>
   </div>
@@ -51,36 +50,8 @@
 
 
 export default {
-    name: 'Login',
-    data: function() {
-      return {
-        username: "",
-        password: "",
-      };
-    },
-    methods: {
-      handleLogin: function(){
-        fetch('http://localhost:8000/auth/users/login/', {
-          method: 'post',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body:JSON.stringify({
-            username: this.username,
-            password: this.password
-          }),
-        })
-        .then(response => response.json())
-        // .then(data => console.log(data));
-        .then(data => {
-          console.log(data)
-          this.$emit('loggedIn', data);
-        });
-
-      }
-    
+  name: 'SignUp',
+  components: {
   }
 }
-
 </script>

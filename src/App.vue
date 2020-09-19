@@ -1,15 +1,19 @@
 <template>
-  <div id="app">
+  <div id="app">      
     <div id="nav">
+       <!-- <router-link to="/Page2">Page2</router-link>
+       <router-link to="/Home">Home</router-link>
+       <router-link to="/Login">Login</router-link> -->
+       <router-view @loggedIn="login($event)"/>
 
-      <Header/>
+
+
     </div>
 
-      <router-link to="/Page2">Page2</router-link>
-
-      <router-link to="/Login">Login</router-link>
-      <router-view/>    
+  
       <Footer/>
+
+    
 
 
   </div>
@@ -17,17 +21,34 @@
 </template>
 
 <script>
-import Header from './components/Header'
+
 import Footer from './components/Footer'
 
 export default {
   name: 'App',
   components: {
-    Header,
-    Footer
+  
+    Footer,
+  },
+  data:function(){
+    return {
+      loggedIn: false,
+      tokens: {},
+      URL:'http://localhost:8000',
+    }
+  },
+  methods: {
+    login: function(event){
+      console.log("event heard")
+      this.loggedIn = true
+      this.tokens = event
+      this.$router.push('/Page2')
+    }
   }
   
 }
+
+
 </script>
 
 <style>
@@ -43,12 +64,5 @@ export default {
   padding: 0px;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
