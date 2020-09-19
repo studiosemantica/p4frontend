@@ -14,13 +14,13 @@
                 </a>
             </b-navbar-item>
 
-            <b-navbar-item tag="router-link" :to="{ path: '/' }">
+            <!-- <b-navbar-item tag="router-link" :to="{ path: '/' }"> -->
             <div class="avatar">
-                <img src="https://image.ibb.co/fa2YRF/dounia.jpg" alt="">
+                <img id="avatarnav" src="https://image.ibb.co/fa2YRF/dounia.jpg" alt="">
             </div>
-            </b-navbar-item>
+            <!-- </b-navbar-item> -->
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
-               <h1 id="navuser">user0001</h1>
+               <h1 id="navuser">user000100000</h1>
             </b-navbar-item>
         </template>
         <template slot="start">
@@ -45,10 +45,10 @@
 
 <style>
 
-/* .navbar-item {
-    width:90px;
+.navbar-item {
+    width:70px;
 
-} */
+}
 
 .navbar-brand{
     height:60px;
@@ -59,7 +59,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
   color:rgb(0, 0, 0);
   font-size:14px;
-  margin-left:-20px;
+  margin-left:0px;
   font-family:'Overpass';
   font-weight:900;
   /* margin-top:70px; */
@@ -78,25 +78,19 @@
 
 }
 
-.navbar-item {
 
-    width:80px;
-
-}
-
-
-
-img {
-    
-    width:50px;
-    /* height:60px; */
+.navbar-item img {
     border-radius: 50%;
-    border: 4px solid white;
-}
+    border: 2px solid white;
+ }
 
+#avatarnav {
+    margin-top:5px;
+    margin-left:10px;
+    max-height:2.5rem;
+    border-radius: 50%;
+    border: 2px solid white;
+ 
 
-.navbar-item{
-    padding-top:0px;
-    max-height: "";
 }
 </style>
