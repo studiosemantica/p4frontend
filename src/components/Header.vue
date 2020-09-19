@@ -176,14 +176,11 @@ export default {
 
 #burger {
   
-  width:150px;
- height:0 em;
+width:150px;
+ height:0 rem;
 
 }
 
 
-/* .navbar-brand{
-  height:px;
-} */
 
 </style>
