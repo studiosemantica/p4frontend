@@ -10,7 +10,7 @@
 |Day 2| Research and Development | Complete
 |Day 3| Research and Development | Complete
 |Day 3| Research and Development | Complete
-|Day 4| Research and Development | Complete
+|Day 4| Research and Development | Incomplete
 |Day 5| MVP | Incomplete
 |Day 6| Final Touches and Present
 
