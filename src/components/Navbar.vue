@@ -20,10 +20,11 @@
                     alt="Lightweight UI components for Vue.js based on Bulma"
                 >
             </b-navbar-item> -->
-
+            <b-navbar-item id="avatar">
             <div class="avatar">
                 <img src="https://image.ibb.co/fa2YRF/dounia.jpg" alt="">
             </div>
+             </b-navbar-item>
 
               <b-navbar-item tag="router-link" :to="{ path: '/' }">
                <h1 id="navuser">user0001</h1>
@@ -68,16 +69,16 @@
 
 <style>
 
-.navbar-item {
-    width:60px;
+/* .navbar-item {
+    width:90px;
 
-}
+} */
 
 #navuser {
     @import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
   color:rgb(0, 0, 0);
   font-size:14px;
-  margin-left:-37px;
+  margin-left:-27px;
   font-family:'Overpass';
   font-weight:900;
   /* margin-top:70px; */
@@ -96,19 +97,29 @@
 
 }
 
-.avatar {
-    width: 50px;
-    height: 100%;
-    position: relative;
-    padding:5px 0px 0px 0px;
-    margin: 10px auto;
+.navbar-item {
+
+    width:80px;
+
 }
+
+#avatar {
+    margin-top:10px;
+    /* width:90px; */
+}
+
+
 img {
-    /* display: block; */
+    
+    width:50px;
+    /* height:60px; */
     border-radius: 50%;
-    /* position: absolute; */
-    bottom: -42px;
     border: 4px solid white;
 }
-        
+
+
+.navbar-item{
+    padding-top:0px;
+    max-height: "";
+}
 </style>

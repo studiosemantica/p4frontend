@@ -175,8 +175,9 @@ export default {
 }
 
 #burger {
+  
   width:150px;
- height: 0.25rem;
+ height:0 em;
 
 }
 
