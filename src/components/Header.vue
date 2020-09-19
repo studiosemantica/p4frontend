@@ -20,7 +20,7 @@
             
             <!-- <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo"> -->
           </a>
-          <span class="navbar-burger burger" data-target="navbarMenuHeroC">
+          <span class="navbar-burger burger" id="burger" data-target="navbarMenuHeroC">
             <span></span>
             <span></span>
             <span></span>
@@ -173,5 +173,16 @@ export default {
   /* object-fit: none; */
   background-position: -440px 0px;
 }
+
+#burger {
+  width:150px;
+ height: 0.25rem;
+
+}
+
+
+/* .navbar-brand{
+  height:px;
+} */
 
 </style>
