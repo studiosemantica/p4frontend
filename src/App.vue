@@ -36,7 +36,7 @@ export default {
       // make a push.query below to send info to main
         this.$router.push({
         path: "Main",
-        query: { token: this.tokens, URL: this.URL },
+        query: { token: event, URL: this.URL },
       });
       
     },

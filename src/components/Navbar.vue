@@ -20,7 +20,9 @@
             </div>
             <!-- </b-navbar-item> -->
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
-               <h1 id="navuser">user000100000</h1>
+               <!-- <h1 id="navuser" v-bind:key="UserProfile.id">{{results.user}}</h1> -->
+               <h1 id="navuser">user 11111000</h1>
+
             </b-navbar-item>
         </template>
         <template slot="start">
@@ -40,14 +42,38 @@
 
 <script>
  export default {
-     name: 'Navbar',
-     methods: {
-         logout: function(){
-             console.log('from navbar')
-             this.$emit("logout")
-         }
-     }
+    name: 'Navbar',
+    data: function(){
+        return {
+        user:null,
+        avatar:null,
+        }
+  },
+    created: function(){
+    console.log(this.$route.query)
+    const {token, URL} = this.$route.query
+    console.log(token)
+    fetch(`${URL}/cloud_msg/UserProfiles/`, {
+        method: 'get',
+        headers: {
+        authorization: `JWT ${token.token}`
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        this.result = data
+        
+        console.log(data)
+    })
+    },
+    methods: {
+        logout: function(){
+            console.log('from navbar')
+            this.$emit("logout")
+        }
+    }
  }
+
 </script>
 
 
