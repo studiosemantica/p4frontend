@@ -21,7 +21,7 @@
             <!-- </b-navbar-item> -->
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
                <!-- <h1 id="navuser" v-bind:key="UserProfile.id">{{results.user}}</h1> -->
-               <h1 id="navuser">user 11111000</h1>
+               <h1 id="navuser">{{user}}</h1>
 
             </b-navbar-item>
         </template>
@@ -43,10 +43,11 @@
 <script>
  export default {
     name: 'Navbar',
+    props: ['user'],
     data: function(){
         return {
-        user:null,
         avatar:null,
+        result: []
         }
   },
     created: function(){
@@ -61,9 +62,13 @@
     })
     .then(response => response.json())
     .then(data => {
-        this.result = data
-        
         console.log(data)
+        this.result = data.results[0]
+        // this.user = data.results[0].user
+        this.avatar = data.results[0].avatar
+        console.log("result",this.result)
+        console.log("user", this.user)
+        console.log("avatar", this.avatar)
     })
     },
     methods: {

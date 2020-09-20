@@ -30,13 +30,13 @@ export default {
   methods: {
     login: function(event){
       console.log("event heard"),
-      console.log(event),
+      console.log("EVENT",event),
       this.loggedIn = true,
       this.tokens = event,
       // make a push.query below to send info to main
         this.$router.push({
         path: "Main",
-        query: { token: event, URL: this.URL },
+        query: { token: event, URL: this.URL, username:event.username },
       });
       
     },
