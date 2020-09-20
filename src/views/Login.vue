@@ -71,12 +71,21 @@ export default {
             password: this.password
           }),
         })
-        .then(response => response.json())
-        // .then(data => console.log(data));
-        .then(data => {
-          console.log(data)
-          this.$emit('loggedIn', data);
-        });
+   .then (response => {
+        if (response.status !== 200) {
+          response.json()
+        } else {
+          return response.json()
+        }
+      })
+      .then(data => {
+        console.log('data', data)
+        if (data) {
+          this.$emit('loggedIn', data)
+        } else {
+          alert('Incorrect Login')
+        }
+      })
 
       }
     
