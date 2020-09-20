@@ -29,23 +29,22 @@ export default {
   },
   methods: {
     login: function(event){
-      console.log("event heard")
-      this.loggedIn = true
-      this.tokens = event
+      console.log("event heard"),
+      console.log(event),
+      this.loggedIn = true,
+      this.tokens = event,
       // make a push.query below to send info to main
-      this.$router.push('/main')
-      console.log(event)
+      this.$router.push('/Main')
+      
     },
       logout: function(){
-      console.log("logout!!")
-      this.loggedIn = false
-      this.tokens = {}
+      console.log("logout!!"),
+      this.loggedIn = false,
+      this.tokens = {},
       this.$router.push('/')
     }
-  }
-  
 }
-
+}
 
 </script>
 
