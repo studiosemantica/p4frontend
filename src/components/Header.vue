@@ -44,7 +44,7 @@
         </div>
 
         <div class="buttons">
-            <b-button tag="router-link" to="/Login" type="is-primary" expanded>I already have an account</b-button>
+            <b-button tag="router-link" :to="{ name: 'Login', query: { URL: this.URL }}" v-bind:URL="URL" type="is-primary" expanded>I already have an account</b-button>
         </div>
         
     </div>
@@ -55,8 +55,10 @@
 
 <script>
 
+
 export default {
   name: "Header",
+  props: ['URL'],
   components: {
   }
 }

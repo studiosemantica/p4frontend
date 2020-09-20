@@ -34,7 +34,10 @@ export default {
       this.loggedIn = true,
       this.tokens = event,
       // make a push.query below to send info to main
-      this.$router.push('/Main')
+        this.$router.push({
+        path: "Main",
+        query: { token: this.tokens, URL: this.URL },
+      });
       
     },
       logout: function(){
