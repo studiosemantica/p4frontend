@@ -30,14 +30,19 @@
         <b-field label="Create Username:"
             type="is-success"
             message="This username is available">
-            <b-input value="johnsilver" maxlength="30"></b-input>
+            <b-input v-model="username" value="johnsilver" maxlength="30"></b-input>
+        </b-field>
+
+        <b-field label="Enter e-mail:">
+            <b-input v-model="email" value="happy@gmail.com" maxlength="40"></b-input>
         </b-field>
 
         <b-field label="Create Password:"
             type="is-warning"
             :message="['Password is too short', 'Password must have at least 8 characters']">
-            <b-input value="123" type="password" maxlength="30"></b-input>
+            <b-input value="123" v-model="password" type="password" maxlength="30"></b-input>
         </b-field>
+          <button class="button is-danger" @click="handleSignup">Sign Up</button>
         </div>
     </div>
   </div>
@@ -50,8 +55,51 @@
 
 
 export default {
-  name: 'SignUp',
-  components: {
+    name: 'SignUp',
+    props:['URL'],
+    data: function() {
+      return {
+        username: "",
+        email: "",
+        password: "",
+        
+      };
+    },
+    methods: {
+      handleSignup: function(){
+        fetch(this.$route.query.URL+"/auth/users/register/", {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body:JSON.stringify({
+            username: this.username,
+            email: this.email,
+            password: this.password
+          }),
+        })
+   .then (response => {
+        if (response.status !== 201) {
+          response.json()
+          console.log(response)
+        } else {
+          alert('Account created! You may now login!')
+          return response.json()
+          
+        }
+      })
+      .then(data => {
+        console.log('data', data)
+        if (data) {
+          this.$emit('SignedUp', data)
+        } else {
+          alert('Incorrect Login')
+        }
+      })
+
+      }
+    
   }
 }
 </script>

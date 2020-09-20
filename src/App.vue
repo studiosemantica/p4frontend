@@ -4,7 +4,7 @@
        <!-- <router-link to="/Page2">Page2</router-link>
        <router-link to="/Home">Home</router-link>
        <router-link to="/Login">Login</router-link> -->
-       <router-view @loggedIn="login($event)" @logout="logout"/>
+       <router-view @loggedIn="login($event)" @logout="logout" @SignedUp="signUp"/>
     </div>
       <Footer/>
   </div>
@@ -23,6 +23,7 @@ export default {
   data:function(){
     return {
       loggedIn: false,
+      signedUp: false,
       tokens: {},
       URL:'http://localhost:8000',
     }
@@ -45,13 +46,22 @@ export default {
       this.loggedIn = false,
       this.tokens = {},
       this.$router.push('/')
-    }
-}
+    },
+      signUp: function(){
+      this.signedUp = true,
+      console.log("signup event heard"),
+      // make a push.query below to send info to main
+        this.$router.push({
+        path: "/"
+      });
+    },
+  }
 }
 
 </script>
 
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

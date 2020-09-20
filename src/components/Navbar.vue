@@ -85,7 +85,7 @@
 <style>
 
 .navbar-item {
-    width:70px;
+    width:90px;
 
 }
 
