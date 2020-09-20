@@ -30,13 +30,25 @@
             <b-navbar-item>
                 User Profile
             </b-navbar-item>
-            <b-navbar-item>
+            <b-navbar-item @click="logout">
                 Logout
             </b-navbar-item>
         </template>
     </b-navbar>
     
 </template>
+
+<script>
+ export default {
+     name: 'Navbar',
+     methods: {
+         logout: function(){
+             console.log('from navbar')
+             this.$emit("logout")
+         }
+     }
+ }
+</script>
 
 
 <style>

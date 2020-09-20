@@ -4,7 +4,7 @@
        <!-- <router-link to="/Page2">Page2</router-link>
        <router-link to="/Home">Home</router-link>
        <router-link to="/Login">Login</router-link> -->
-       <router-view @loggedIn="login($event)"/>
+       <router-view @loggedIn="login($event)" @logout="logout"/>
     </div>
       <Footer/>
   </div>
@@ -32,7 +32,15 @@ export default {
       console.log("event heard")
       this.loggedIn = true
       this.tokens = event
+      // make a push.query below to send info to main
       this.$router.push('/main')
+      console.log(event)
+    },
+      logout: function(){
+      console.log("logout!!")
+      this.loggedIn = false
+      this.tokens = {}
+      this.$router.push('/')
     }
   }
   

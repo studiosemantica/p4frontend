@@ -40,7 +40,7 @@
         Connect with artists worldwide.
       </h1>
         <div class="buttons">
-            <b-button tag="router-link" to="/SignUp" type="is-primary" v-bind:URL="URL" expanded>Create an Account</b-button>
+            <b-button tag="router-link" to="/SignUp" type="is-primary" expanded>Create an Account</b-button>
         </div>
 
         <div class="buttons">
