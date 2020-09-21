@@ -17,7 +17,7 @@
 <article id="list" class="media" v-for="message of messages.results" v-bind:key="message.id">
   <figure class="media-left">
     <div class="avatar">
-        <img id="avatarnav" src="https://image.ibb.co/fa2YRF/dounia.jpg" alt="">
+        <img id="avatarnav" :src="message.sender_avatar">
     </div>
   </figure>
   <div class="media-content">
@@ -42,7 +42,7 @@
 <article id="conversation" class="media" v-for="message of messages.results" v-bind:key="message.id">
   <figure class="media-left">
     <div class="avatar">
-        <img id="avatarnav" src="https://image.ibb.co/fa2YRF/dounia.jpg" alt="">
+        <img id="avatarnav" :src="message.sender_avatar">
     </div>
   </figure>
   <div class="media-content">
@@ -78,7 +78,7 @@ export default {
   data: function(){
     return {
       // username:"",
-      // avatar:"",
+      avatar:"",
       messages: [],
       users: [],
       token: "",
