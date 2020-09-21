@@ -5,7 +5,7 @@
 <!-- props and queries send stuff down -->
 
 <!-- send emitted data into navbar as a this.$route.query -->
-<Navbar v-bind:user="user" @logout="logout"/>
+<Navbar v-bind:token="token" v-bind:URL="URL" v-bind:user="user" @logout="logout"/>
 <!-- <ul>
   <li v-for="message of messages.results" v-bind:key="message.id">{{message.sender}}{{message.message}}</li>
 </ul> -->
@@ -81,13 +81,18 @@ export default {
       // avatar:"",
       messages: [],
       users: [],
+      token: "",
+      URL: "",
+
     }
   },
   created: function(){
-  console.log(this.$route.query)
+  console.log("from Main.vue:this.$route.query",this.$route.query)
   const {token, URL, username} = this.$route.query
   this.user = username
-  console.log(token)
+  this.token = token.token
+  this.URL = URL
+  console.log("from Main.vue:this.user,this.token,this.URL:",this.user,this.token,this.URL)
   fetch(`${URL}/cloud_msg/messages/`, {
     method: 'get',
     headers: {
@@ -105,7 +110,7 @@ export default {
   methods: {
     logout: function(){
       this.$emit("logout")
-      console.log("logout received")
+      console.log("logout emission received")
     },
   }
 }

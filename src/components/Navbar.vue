@@ -29,7 +29,7 @@
         </template>
 
         <template slot="end">
-            <b-navbar-item tag="router-link" :to="{ name: 'UserProfile', query: { URL: this.URL }}">
+            <b-navbar-item tag="router-link" :to="{ name: 'UserProfile', query: { URL: this.URL, token: this.token, avatar: this.avatar, user: this.user }}" v-bind:URL="URL" v-bind:token="token" v-bind:avatar="avatar" v-bind:user="user">
                 User Profile
             </b-navbar-item>
             <b-navbar-item @click="logout">
@@ -43,7 +43,7 @@
 <script>
  export default {
     name: 'Navbar',
-    props: ['user'],
+    props: ['user', 'URL', 'token'],
     data: function(){
         return {
         avatar:null,
@@ -51,21 +51,23 @@
         }
   },
     created: function(){
-    console.log(this.$route.query)
-    const {token, URL} = this.$route.query
-    console.log(token)
-    fetch(`${URL}/cloud_msg/UserProfiles/`, {
+    // console.log("from Navbar.vue:this$route.query---",this.$route.query)
+    // const {token, URL} = this.$route.query
+    // console.log("from Navbar.vue:token---",token)
+    fetch(`${this.URL}/cloud_msg/UserProfiles/`, {
         method: 'get',
         headers: {
-        authorization: `JWT ${token.token}`
+        authorization: `JWT ${this.token}`
         }
     })
     .then(response => response.json())
     .then(data => {
         console.log(data)
-        this.result = data.results[0]
+        this.result = data.results
+        const userProfile = this.result.find(UserProfile => UserProfile.user === this.user)
+        console.log("Printing userProfile from navbar",userProfile)
         // this.user = data.results[0].user
-        this.avatar = data.results[0].avatar
+        this.avatar = userProfile.avatar
         console.log("result",this.result)
         console.log("user", this.user)
         console.log("avatar", this.avatar)

@@ -1,20 +1,21 @@
 
 <template>
 <div>
-<Navbar v-bind:user="user" @logout="logout"/>
+<Navbar v-bind:token="token" v-bind:URL="URL" v-bind:user="user"  @logout="logout"/>
 
        <div class="userprofile">
  <section>
 
 
+
         <b-field horizontal label="Avatar:">
-            <b-input name="avatar" placeholder="enter avatar URL" expanded></b-input>
+            <b-input name="avatar" v-model="avatar" placeholder="enter avatar URL" expanded></b-input>
         </b-field>
 
         
         <b-field horizontal><!-- Label left empty for spacing -->
             <p class="control">
-                <button class="button is-primary">
+                <button class="button is-primary" @click="handleUpdate">
                   Update Changes
                 </button>
             </p>
@@ -42,16 +43,47 @@ import Navbar from '../components/Navbar.vue'
 export default {
     name: 'UserProfile',
     components: { Navbar } ,
-    props:['URL'],
+    props:[''],
     data: function() {
       return {
-        avatar: "",
+        avatar:"",
+        URL:"",
+        token:"",
+        user: ""
         // email: "",
         // password: "",
         
       };
     },
+    created: function() {
+    console.log("USERPROFILE-this.$route.query",this.$route.query)
+    const {token, URL, avatar, user} = this.$route.query
+    this.user = user,
+    this.token = token,
+    this.URL = URL,
+    this.avatar = avatar,
+    console.log("USERPROFILE-token,URL,avatar",token, URL, avatar)
+    },
     methods: {
+    handleUpdate: function(){
+
+    // fetch(`${URL}/cloud_msg/UserProfiles/`, {
+    //     method: 'get',
+    //     headers: {
+    //     authorization: `JWT ${token.token}`
+    //     }
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //     console.log(data)
+    //     this.result = data.results[0]
+    //     // this.user = data.results[0].user
+    //     this.avatar = data.results[0].avatar
+    //     console.log("result",this.result)
+    //     console.log("user", this.user)
+    //     console.log("avatar", this.avatar)
+    // })
+    },
     logout: function(){
       this.$emit("logout")
       console.log("logout received")
