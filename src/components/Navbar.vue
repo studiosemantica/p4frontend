@@ -29,7 +29,7 @@
         </template>
 
         <template slot="end">
-            <b-navbar-item>
+            <b-navbar-item tag="router-link" :to="{ name: 'UserProfile', query: { URL: this.URL }}">
                 User Profile
             </b-navbar-item>
             <b-navbar-item @click="logout">
