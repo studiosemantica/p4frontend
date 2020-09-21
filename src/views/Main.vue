@@ -23,7 +23,7 @@
   <div class="media-content">
     <div class="content">
       <p>
-        <strong>{{message.sender}}</strong>
+        <strong>{{message.sender_name}}</strong>
         <br>
         {{message.message.substring(0,20)+".." }}
       </p>
@@ -48,7 +48,7 @@
   <div class="media-content">
     <div class="content">
       <p>
-        <strong>{{message.sender}}</strong>
+        <strong>{{message.sender_name}}</strong>
         <br>
         {{message.message}}
       </p>
