@@ -6,19 +6,19 @@
        <router-link to="/Login">Login</router-link> -->
        <router-view @loggedIn="login($event)" @logout="logout" @SignedUp="signUp"/>
     </div>
-      <Footer/>
+      <!-- <Footer/> -->
   </div>
       
 </template>
 
 <script>
 
-import Footer from './components/Footer'
+// import Footer from './components/Footer'
 
 export default {
   name: 'App',
   components: {
-    Footer,
+    // Footer,
   },
   data:function(){
     return {

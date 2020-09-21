@@ -129,10 +129,22 @@
     border: 2px solid white;
  }
 
+ .avatar{
+     width:50px;
+     height:50px;
+
+ }
+
+ .img {
+     width:50px;
+     height:50px;
+ }
+
 #avatarnav {
     margin-top:5px;
     margin-left:10px;
     max-height:2.5rem;
+    max-width:2.5rem;
     border-radius: 50%;
     border: 2px solid white;
  
