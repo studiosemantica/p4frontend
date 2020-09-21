@@ -1,7 +1,7 @@
 
 <template>
 <div>
-<Navbar v-bind:token="token" v-bind:URL="URL" v-bind:user="user"  @logout="logout"/>
+<Navbar v-bind:token="token" v-bind:URL="URL" v-bind:user="user" v-bind:avatar="avatar" @logout="logout"/>
 
        <div class="userprofile">
  <section>
@@ -47,6 +47,7 @@ export default {
     data: function() {
       return {
         avatar:"",
+        profile_id:null,
         URL:"",
         token:"",
         user: ""
@@ -57,32 +58,36 @@ export default {
     },
     created: function() {
     console.log("USERPROFILE-this.$route.query",this.$route.query)
-    const {token, URL, avatar, user} = this.$route.query
+    const {token, URL, avatar, user, profile_id} = this.$route.query
     this.user = user,
     this.token = token,
     this.URL = URL,
     this.avatar = avatar,
+    this.profile_id = profile_id
     console.log("USERPROFILE-token,URL,avatar",token, URL, avatar)
     },
     methods: {
     handleUpdate: function(){
 
-    // fetch(`${URL}/cloud_msg/UserProfiles/`, {
-    //     method: 'get',
-    //     headers: {
-    //     authorization: `JWT ${token.token}`
-    //     }
-    // })
-    // .then(response => response.json())
-    // .then(data => {
-    //     console.log(data)
-    //     this.result = data.results[0]
-    //     // this.user = data.results[0].user
-    //     this.avatar = data.results[0].avatar
-    //     console.log("result",this.result)
-    //     console.log("user", this.user)
-    //     console.log("avatar", this.avatar)
-    // })
+    fetch(`${this.URL}/cloud_msg/UserProfiles/${this.profile_id}/`, {
+        method: 'put',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            authorization: `JWT ${this.token}`
+          },
+        body: JSON.stringify({avatar:this.avatar})
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        // this.result = data.results[0]
+        // this.user = data.results[0].user
+        // this.avatar = data.results[0].avatar
+        console.log("result",this.result)
+        console.log("user", this.user)
+        console.log("avatar", this.avatar)
+    })
     },
     logout: function(){
       this.$emit("logout")

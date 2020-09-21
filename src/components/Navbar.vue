@@ -2,7 +2,7 @@
 
     <b-navbar>
         <template slot="brand">
-             <b-navbar-item tag="router-link" :to="{ path: '/' }">
+             <b-navbar-item tag="router-link" :to="{ path: '/Main' }">
                 <a class="navbar-item">
                     <svg id="cloud-icon2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cloud" 
                     class="svg-inline--fa fa-cloud fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" 
@@ -16,7 +16,9 @@
 
             <!-- <b-navbar-item tag="router-link" :to="{ path: '/' }"> -->
             <div class="avatar">
-                <img id="avatarnav" src="https://image.ibb.co/fa2YRF/dounia.jpg" alt="">
+                <img id="avatarnav" :src="avatar">
+                
+                <!-- src="https://image.ibb.co/fa2YRF/dounia.jpg" alt=""> -->
             </div>
             <!-- </b-navbar-item> -->
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
@@ -29,7 +31,7 @@
         </template>
 
         <template slot="end">
-            <b-navbar-item tag="router-link" :to="{ name: 'UserProfile', query: { URL: this.URL, token: this.token, avatar: this.avatar, user: this.user }}" v-bind:URL="URL" v-bind:token="token" v-bind:avatar="avatar" v-bind:user="user">
+            <b-navbar-item tag="router-link" :to="{ name: 'UserProfile', query: { URL: this.URL, token: this.token, avatar: this.avatar, user: this.user, profile_id: this.profile_id }}" v-bind:URL="URL" v-bind:token="token" v-bind:avatar="avatar" v-bind:user="user">
                 User Profile
             </b-navbar-item>
             <b-navbar-item @click="logout">
@@ -46,7 +48,8 @@
     props: ['user', 'URL', 'token'],
     data: function(){
         return {
-        avatar:null,
+        profile_id:null,
+        avatar:"",
         result: []
         }
   },
@@ -68,6 +71,7 @@
         console.log("Printing userProfile from navbar",userProfile)
         // this.user = data.results[0].user
         this.avatar = userProfile.avatar
+        this.profile_id = userProfile.id
         console.log("result",this.result)
         console.log("user", this.user)
         console.log("avatar", this.avatar)
