@@ -23,7 +23,7 @@
 
         <b-field horizontal><!-- Label left empty for spacing -->
             <p class="control">
-                <button class="button is-primary" @click="handleUpdate">
+                <button class="button is-primary" @click="handleDelete">
                   Delete Account
                 </button>
             </p>
@@ -67,7 +67,12 @@ export default {
     console.log("USERPROFILE-token,URL,avatar",token, URL, avatar)
     },
     methods: {
+       
     handleUpdate: function(){
+        console.log(this.avatar)
+    
+    if ( this.profile_id != null ) {
+
     fetch(`${this.URL}/cloud_msg/UserProfiles/${this.profile_id}/`, {
         method: 'put',
           headers: {
@@ -86,11 +91,12 @@ export default {
         console.log("result",this.result)
         console.log("user", this.user)
         console.log("avatar", this.avatar)
+    
     })
-    },
-    handleDelete: function(){
-    fetch(`${this.URL}/auth/users/user/`, {
-        method: 'delete',
+    } else {
+
+        fetch(`${this.URL}/cloud_msg/UserProfiles/`, {
+        method: 'post',
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -107,6 +113,24 @@ export default {
         console.log("result",this.result)
         console.log("user", this.user)
         console.log("avatar", this.avatar)
+        console.log("created avatar object")
+    })
+
+    }
+    },
+    handleDelete: function(){
+    fetch(`${this.URL}/auth/users/user/`, {
+        method: 'delete',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            authorization: `JWT ${this.token}`
+          },
+          body: JSON.stringify()
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
     })
     },
     logout: function(){

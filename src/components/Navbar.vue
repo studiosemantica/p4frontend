@@ -52,9 +52,6 @@
         }
   },
     created: function(){
-    // console.log("from Navbar.vue:this$route.query---",this.$route.query)
-    // const {token, URL} = this.$route.query
-    // console.log("from Navbar.vue:token---",token)
     fetch(`${this.URL}/cloud_msg/UserProfiles/`, {
         method: 'get',
         headers: {

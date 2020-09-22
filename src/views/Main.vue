@@ -13,7 +13,7 @@
       
       <div class="list-view">
         <!-- <article id="list" class="media" v-for="message of messages.results" v-bind:key="message.id"> -->
-        <article
+        <article class="list-divs"
           v-for="conversation in Object.keys(conversations)"
           v-bind:key="conversation"
           v-on:click="() => selectUser(conversation)"
@@ -185,5 +185,12 @@ export default {
   height: 350px;
   overflow-y: auto;
 }
+
+.list-divs {
+  background-color: #ffffff;
+
+}
+
+  .list-divs:hover { background-color: #e6e6e6; }
 
 </style>
