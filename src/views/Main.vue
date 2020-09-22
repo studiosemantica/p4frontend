@@ -16,11 +16,11 @@
         <article
           v-for="conversation in Object.keys(conversations)"
           v-bind:key="conversation"
-          v-on:click="() => selectedConversation = conversation"
+          v-on:click="() => selectUser(conversation)"
         >
           <figure class="media-left">
             <div class="avatar">
-              <img id="avatarnav" :src="message.sender_avatar" />
+              <img id="avatarnav" :src="conversations[conversation][0].sender_avatar" />
             </div>
           </figure>
           <div class="media-content">
@@ -28,7 +28,7 @@
               <!-- {{message.message.substring(0,20)+".." }} -->
               <!-- <strong>{{message.sender_name}}</strong> -->
               <h3>{{conversation}} :: {{conversations[conversation].length}} messages</h3>
-              <br />
+              <br/>
               <p>{{conversations[conversation][0].message.substring(0,20)+".."}}</p>
             </div>
           </div>
@@ -44,7 +44,7 @@
         <article
           id="conversation"
           class="media"
-          v-for="message of messages.results"
+          v-for="message of conversations[selectedConversation]"
           v-bind:key="message.id"
         >
           <figure class="media-left">
@@ -92,6 +92,9 @@ export default {
      // this would be this.conversations instead
       token: "",
       URL: "",
+      selectedConversation: null,
+      selectedConversationUser:null, 
+
 
     }
   },
@@ -112,33 +115,44 @@ export default {
   .then(response => response.json())
   .then(data => {
     this.messages = data
-    this.messages.forEach(message => {
-    if (message.sender_name != this.username) { // messages sent TO user will be categorized by sender_name
+    this.messages.results.forEach(message => {
+      console.log(message.sender_name)
+    if (message.sender_name != this.user) { // messages sent TO user will be categorized by sender_name
         if (this.conversations[message.sender_name]) {
             this.conversations[message.sender_name].push(message)
         } else {
             this.conversations[message.sender_name] = [message]
         }
-    } else if (message.receiver_name != this.username) { // messages sent TO anyone else will be categorized by receiver name
+    } else if (message.receiver_name != this.user) { // messages sent TO anyone else will be categorized by receiver name
         if (this.conversations[message.receiver_name]) {
             this.conversations[message.receiver_name].push(message)
         } else {
             this.conversations[message.receiver_name] = [message]
         }
     } else { // base case: user sends message to self
-        if (this.conversations[username]) {
-            this.conversations[username].push(message)
+        if (this.conversations[this.user]) {
+            this.conversations[this.user].push(message)
         } else {
-            this.conversations[username] = [message]
+            this.conversations[this.user] = [message]
         }
     }
-  })
+  }) 
+  this.selectedConversation = Object.keys(this.conversations)[0]  
   });
     },
    methods: {
     logout: function(){
       this.$emit("logout")
       console.log("logout emission received")
+    },
+    selectUser: function(conversation){
+      this.selectedConversation = conversation
+      const message = this.conversations[this.selectedConversation][0]
+      if ( message.sender_name == this.selectedConversation){
+        this.selectedConversationUser = message.sender
+      } else {
+        this.selectedConversationUser = message.receiver
+      }
     }
 }
 }

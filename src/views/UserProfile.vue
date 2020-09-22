@@ -23,7 +23,7 @@
 
         <b-field horizontal><!-- Label left empty for spacing -->
             <p class="control">
-                <button class="button is-primary">
+                <button class="button is-primary" @click="handleUpdate">
                   Delete Account
                 </button>
             </p>
@@ -50,7 +50,7 @@ export default {
         profile_id:null,
         URL:"",
         token:"",
-        user: ""
+        user: "",
         // email: "",
         // password: "",
         
@@ -68,9 +68,29 @@ export default {
     },
     methods: {
     handleUpdate: function(){
-
     fetch(`${this.URL}/cloud_msg/UserProfiles/${this.profile_id}/`, {
         method: 'put',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            authorization: `JWT ${this.token}`
+          },
+        body: JSON.stringify({avatar:this.avatar})
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        // this.result = data.results[0]
+        // this.user = data.results[0].user
+        // this.avatar = data.results[0].avatar
+        console.log("result",this.result)
+        console.log("user", this.user)
+        console.log("avatar", this.avatar)
+    })
+    },
+    handleDelete: function(){
+    fetch(`${this.URL}/auth/users/user/`, {
+        method: 'delete',
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',

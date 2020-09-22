@@ -2,7 +2,7 @@
 
     <b-navbar>
         <template slot="brand">
-             <b-navbar-item tag="router-link" :to="{ path: '/Main' }">
+             <b-navbar-item tag="router-link" :to="{ name: 'Main', query: { URL: this.URL, token: this.token, avatar: this.avatar, user: this.user, profile_id: this.profile_id }}" v-bind:URL="URL" v-bind:token="token" v-bind:avatar="avatar" v-bind:user="user">
                 <a class="navbar-item">
                     <svg id="cloud-icon2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cloud" 
                     class="svg-inline--fa fa-cloud fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" 
@@ -21,10 +21,8 @@
                 <!-- src="https://image.ibb.co/fa2YRF/dounia.jpg" alt=""> -->
             </div>
             <!-- </b-navbar-item> -->
-            <b-navbar-item tag="router-link" :to="{ path: '/' }">
-               <!-- <h1 id="navuser" v-bind:key="UserProfile.id">{{results.user}}</h1> -->
+            <b-navbar-item>
                <h1 id="navuser">{{user}}</h1>
-
             </b-navbar-item>
         </template>
         <template slot="start">
@@ -81,7 +79,7 @@
         logout: function(){
             console.log('from navbar')
             this.$emit("logout")
-        }
+        },
     }
  }
 
