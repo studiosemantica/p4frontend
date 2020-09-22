@@ -198,4 +198,10 @@
 .whiteText:hover {
     color:rgb(151, 151, 151);
 }
+
+@media only screen and (max-width: 1020px) {
+    .whiteText {
+    color:rgb(97, 97, 97);
+}
+}
 </style>

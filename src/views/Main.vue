@@ -10,8 +10,11 @@
     </ul>-->
 
     <div class="Messages-Window">
+
+  
       
       <div class="list-view">
+        <p id="messages_title">Messages</p>
         <!-- <article id="list" class="media" v-for="message of messages.results" v-bind:key="message.id"> -->
         <article class="list-divs"
           v-for="conversation in Object.keys(conversations)"
@@ -19,15 +22,19 @@
           v-on:click="() => selectUser(conversation)"
         >
           <figure class="media-left">
-            <div class="avatar">
+            <div class="avatar-left">
               <img id="avatarnav" :src="conversations[conversation][0].sender_avatar" />
             </div>
+        
           </figure>
           <div class="media-content">
-            <div class="content">
-              <strong>{{conversation}} :: {{conversations[conversation].length}} messages</strong>
+            <div id="list-content" class="content">
+              <strong>{{conversation}}
+                     <!-- <br/>  -->
+               <!-- {{conversations[conversation].length}} messages -->
+               </strong>
               <br/>
-              {{conversations[conversation][0].message.substring(0,20)+".."}}
+             <span class="previewText">{{conversations[conversation][0].message.substring(0,80)+"..."}}</span> 
             </div>
           </div>
           <div class="media-right">
@@ -35,8 +42,8 @@
         </article>
       </div>
 
-      <div class="conversation-div">
 
+      <div class="conversation-div">
       <div class="conversation-view">
         <article
           id="conversation"
@@ -63,14 +70,17 @@
           </div>
         </article>
         </div>
+        <br>
+        <p id="new_message_title">Compose New</p>
 
        
   <select class="form-control" v-model="selectedReceiverID" @change="selectReceiver($event)">
-    <option value="" selected disabled>Choose</option>
+    <option value="" selected disabled>Select recipient:</option>
     <option v-for="user in users" :value="user.id" :key="user.id">{{ user.username }}</option>
   </select>
   <br><br>
-  <p><span>Selected receiver: {{ selectedReceiver }}</span></p>
+  <p><span>Send to: {{ selectedReceiver }}</span></p>
+  
 
         <textarea class="textarea" v-model="message" v-on:keyup="keymonitor" placeholder="e.g. Hello world"></textarea>
       
@@ -212,11 +222,42 @@ export default {
 </script>
 
 <style>
+
 .Messages-Window {
   display: flex;
   flex-direction: row;
   margin: 80px;
 }
+
+.textarea {
+  margin-bottom:70px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+#messages_title {
+  color:rgb(0, 0, 0);
+  font-size:30px;
+  font-family:'Overpass';
+  font-weight:800;
+  margin-top:0px;
+  margin-bottom:30px;
+  letter-spacing: .2px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+#new_message_title {
+  color:rgb(0, 0, 0);
+  font-size:20px;
+  font-family:'Overpass';
+  font-weight:800;
+  padding: 40px 0px 0px 0px;
+  margin-top:-25px;
+  border-top:grey 1px solid;
+  margin-bottom:10px;
+  letter-spacing: .2px;
+}
+
+
 
 @media only screen and (max-width: 600px) {
 
@@ -225,28 +266,79 @@ export default {
   flex-direction: column;
   margin: 40px;
 }
+
+.conversation-div {
+  width: 250px;
+  height:350px;
+  margin:25px 0px 0px 10px;
+  text-align: left;
+}
+
+.textarea {
+  margin-bottom:70px;
+}
+
 }
 
 .conversation-div {
-  width: 400px;
+  width: 380px;
   height:350px;
-  margin:5px;
+  margin-top:70px;
   text-align: left;
 }
 
 .conversation-view {
-  margin-bottom: 20px;
-  width: 400px;
+  width: 380px;
   height: 350px;
+  margin:20px;
   overflow-y: auto;
 }
 
+
+
+.conversation-media {
+  width: 380px;
+  margin:40px;
+  overflow-y: auto;
+}
+
+#list-content {
+  padding:10px;
+}
+
+
 .list-divs { background-color: #ffffff;
   width: 400px;
+  margin-left:30px;
   /* text-align: left;    */
 }
 
-.list-divs:hover { background-color: #ececec; }
+.list-divs:hover { 
+background-color: rgb(230, 230, 230);
+margin-left:27px;
+border-left: 3px solid rgb(216, 115, 0);
+animation-name: example;
+animation-duration:.7s;
+}
+
+@keyframes example {
+  0%   {background-color: #ffffff;}
+  100%  {background-color: rgb(230, 230, 230);}
+}
+
+.avatar-left {
+  margin-top:5px;
+}
+
+.delete {
+  margin-right:20px;
+  margin-top:18px;
+}
+
+
+.previewText {
+  font-size:12px;
+}
 
 /* width */
 ::-webkit-scrollbar {
@@ -267,4 +359,5 @@ export default {
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+
 </style>

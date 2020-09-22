@@ -30,11 +30,11 @@
         Connect with artists worldwide.
       </h1>
         <div class="buttons">
-            <b-button tag="router-link" :to="{ name: 'SignUp', query: { URL: this.URL }}" v-bind:URL="URL" type="is-primary" expanded>Create an Account</b-button>
+            <b-button id="SignUpButton" tag="router-link" :to="{ name: 'SignUp', query: { URL: this.URL }}" v-bind:URL="URL" type="is-primary" expanded>Create an Account</b-button>
         </div>
 
         <div class="buttons">
-            <b-button tag="router-link" :to="{ name: 'Login', query: { URL: this.URL }}" v-bind:URL="URL" type="is-primary" expanded>I already have an account</b-button>
+            <b-button id="LogInButton" tag="router-link" :to="{ name: 'Login', query: { URL: this.URL }}" v-bind:URL="URL" type="is-primary" expanded>I already have an account</b-button>
         </div>
         
     </div>
@@ -96,7 +96,7 @@ export default {
 
 #title {
   font-size:25px;
-  margin:160px -30px 0px -30px;
+  margin:160px -30px 10px -30px;
 
 }
 
@@ -132,10 +132,39 @@ width:150px;
 .navbar-item:hover {
     background-color: unset !important;
     color: unset !important;
-  
-
 }
 
+.buttons {
+  width:80%;
+  margin: 20px auto;
+}
+
+@media only screen and (min-width: 600px) {
+   .buttons {
+  width:50%;
+  margin: 20px auto;
+}
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+#SignUpButton {
+  background-color:rgb(255, 115, 0);
+  color:white;
+  font-size:14px;
+  font-family:'Overpass';
+  font-weight:700;
+  padding:22px 0px 22px 0px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+#LogInButton {
+  background-color:rgb(255, 255, 255);
+  color:rgb(75, 75, 75);
+  font-size:14px;
+  font-family:'Overpass';
+  font-weight:700;
+  padding:22px 0px 22px 0px;
+}
 
 
 </style>
