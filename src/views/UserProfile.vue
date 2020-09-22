@@ -93,6 +93,8 @@ export default {
         console.log("avatar", this.avatar)
     
     })
+    window.location.reload()
+    window.scrollTo(0,0)
     } else {
 
         fetch(`${this.URL}/cloud_msg/UserProfiles/`, {
@@ -107,15 +109,34 @@ export default {
     .then(response => response.json())
     .then(data => {
         console.log(data)
-        // this.result = data.results[0]
-        // this.user = data.results[0].user
-        // this.avatar = data.results[0].avatar
         console.log("result",this.result)
         console.log("user", this.user)
         console.log("avatar", this.avatar)
         console.log("created avatar object")
     })
-
+    window.location.reload()
+    window.scrollTo(0,0)
+    fetch(`${this.URL}/cloud_msg/UserProfiles/`, {
+        method: 'get',
+        headers: {
+        authorization: `JWT ${this.token}`
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        this.result = data.results
+        const userProfile = this.result.find(UserProfile => UserProfile.user === this.user)
+        console.log("Printing userProfile from navbar",userProfile)
+        // this.user = data.results[0].user
+        this.avatar = userProfile.avatar
+        this.profile_id = userProfile.id
+        console.log("result",this.result)
+        console.log("user", this.user)
+        console.log("avatar", this.avatar)
+        
+    })
+  
     }
     },
     handleDelete: function(){
@@ -133,8 +154,6 @@ export default {
         console.log(data)
         alert("Accout has been deleted")
         this.$router.push('/')
-
-        
     })
     },
     logout: function(){

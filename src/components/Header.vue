@@ -50,12 +50,14 @@ export default {
   name: "Header",
   props: ['URL'],
   components: {
-  }
+  },
+  // methods: {
+  //   goHome: function(){
+  //     console.log('from navbar')
+  //     this.$router.push('/')
+  //   }
+// }
 }
-
-   
-
-
 </script>
 
 <style>

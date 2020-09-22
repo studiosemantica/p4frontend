@@ -18,7 +18,7 @@ export default {
   },
     data:function(){
     return {
-      URL:'https://p4-app.herokuapp.com',
+      URL:'http://localhost:8000',
     }
 }
 }
