@@ -97,11 +97,11 @@
 
 .navbar-item {
     width:120px;
-    padding-top:25px;
+    padding-top:15px;
 }
 
 .icon-div {
-  padding-bottom:30px;
+  padding-bottom:40px;
   width: 80px;
   /* height: 100px; */
   background-color: rgb(221, 86, 36);
