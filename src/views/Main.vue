@@ -25,15 +25,12 @@
           </figure>
           <div class="media-content">
             <div class="content">
-              <!-- {{message.message.substring(0,20)+".." }} -->
-              <!-- <strong>{{message.sender_name}}</strong> -->
-              <h6>{{conversation}} :: {{conversations[conversation].length}} messages</h6>
+              <strong>{{conversation}} :: {{conversations[conversation].length}} messages</strong>
               <br/>
-              <p>{{conversations[conversation][0].message.substring(0,20)+".."}}</p>
+              {{conversations[conversation][0].message.substring(0,20)+".."}}
             </div>
           </div>
           <div class="media-right">
-            <button class="delete"></button>
           </div>
         </article>
       </div>
@@ -228,18 +225,12 @@ export default {
   flex-direction: column;
   margin: 40px;
 }
-
-}
-
-#list {
-  width: 400px;
-  text-align: left;
 }
 
 .conversation-div {
   width: 400px;
   height:350px;
-  /* margin:0 auto; */
+  margin:5px;
   text-align: left;
 }
 
@@ -250,11 +241,30 @@ export default {
   overflow-y: auto;
 }
 
-.list-divs {
-  background-color: #ffffff;
-
+.list-divs { background-color: #ffffff;
+  width: 400px;
+  /* text-align: left;    */
 }
 
-  .list-divs:hover { background-color: #e6e6e6; }
+.list-divs:hover { background-color: #ececec; }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 </style>
