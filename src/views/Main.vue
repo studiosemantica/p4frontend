@@ -27,7 +27,7 @@
             <div class="content">
               <!-- {{message.message.substring(0,20)+".." }} -->
               <!-- <strong>{{message.sender_name}}</strong> -->
-              <h3>{{conversation}} :: {{conversations[conversation].length}} messages</h3>
+              <h6>{{conversation}} :: {{conversations[conversation].length}} messages</h6>
               <br/>
               <p>{{conversations[conversation][0].message.substring(0,20)+".."}}</p>
             </div>
@@ -66,7 +66,16 @@
           </div>
         </article>
         </div>
-        <textarea class="textarea" placeholder="e.g. Hello world"></textarea>
+
+       
+  <select class="form-control" v-model="selectedReceiverID" @change="selectReceiver($event)">
+    <option value="" selected disabled>Choose</option>
+    <option v-for="user in users" :value="user.id" :key="user.id">{{ user.username }}</option>
+  </select>
+  <br><br>
+  <p><span>Selected receiver: {{ selectedReceiver }}</span></p>
+
+        <textarea class="textarea" v-model="message" v-on:keyup="keymonitor" placeholder="e.g. Hello world"></textarea>
       
       </div>
     </div> 
@@ -93,12 +102,20 @@ export default {
       token: "",
       URL: "",
       selectedConversation: null,
-      selectedConversationUser:null, 
+      selectedConversationUser:null,
+      selectedReceiver: null,
+      message:"",
+      selectedReceiverID: null,
+       
 
 
     }
   },
-  created: function(){
+  created: function() {
+    this.showMessages()
+  },
+  methods: {
+    showMessages: function() {
   console.log("from Main.vue:this.$route.query",this.$route.query)
   const {token, URL, username} = this.$route.query
   this.user = username
@@ -106,6 +123,18 @@ export default {
   this.URL = URL
   this.conversations = {}
   console.log("from Main.vue:this.user,this.token,this.URL:",this.user,this.token,this.URL)
+  fetch(`${URL}/auth/users/`, {
+    method: 'get',
+    headers: {
+      authorization: `JWT ${token.token}`
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log("USERS",data)
+    this.users = data.results
+    console.log(this.users)
+  })
   fetch(`${URL}/cloud_msg/messages/`, {
     method: 'get',
     headers: {
@@ -140,7 +169,35 @@ export default {
   this.selectedConversation = Object.keys(this.conversations)[0]  
   });
     },
-   methods: {
+     keymonitor: function(event) {
+      console.log(event.key);
+      if(event.key == "Enter")
+      { this.sendMessage() }
+    },
+    sendMessage: function() {
+      fetch(`${this.URL}/cloud_msg/messages/`, {
+      method: 'post',
+      headers: {
+        authorization: `JWT ${this.token}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+        body:JSON.stringify({
+        receiver: this.selectedReceiverID,
+        message: this.message,
+        }),
+      })
+      .then(response => response.json())
+      .then(data => {
+      console.log("SEND MESSAGE RESPONSE:",data)
+      this.showMessages()
+      this.message = ""
+      this.selectedConversation = this.selectedReceiver
+      })
+    },
+    selectReceiver (event) {
+      this.selectedReceiver = event.target.options[event.target.options.selectedIndex].text
+    },
     logout: function(){
       this.$emit("logout")
       console.log("logout emission received")
@@ -153,11 +210,8 @@ export default {
       } else {
         this.selectedConversationUser = message.receiver
       }
-    }
-}
-}
-
-  
+    },
+}}
 </script>
 
 <style>
@@ -168,7 +222,7 @@ export default {
 }
 
 #list {
-  width: 300px;
+  width: 400px;
   text-align: left;
 }
 
