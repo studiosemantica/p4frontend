@@ -2,7 +2,7 @@
 
     <b-navbar>
         <template slot="brand">
-             <b-navbar-item tag="router-link" :to="{ name: 'Main', query: { URL: this.URL, token: this.token, avatar: this.avatar, user: this.user, profile_id: this.profile_id }}" v-bind:URL="URL" v-bind:token="token" v-bind:avatar="avatar" v-bind:user="user">
+             <b-navbar-item>
                 <a class="navbar-item">
                     <svg id="cloud-icon2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cloud" 
                     class="svg-inline--fa fa-cloud fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" 
@@ -85,14 +85,20 @@
 
 <style>
 
-.navbar-item {
-    width:90px;
 
+.navbar-item {
+    width:120px;
 }
+
+.navbar-end {
+    text-align:right;
+}
+
 
 .navbar-brand{
     height:60px;
     padding-top:5px;
+    
 }
 
 #navuser {
@@ -104,6 +110,8 @@
   font-weight:900;
   /* margin-top:70px; */
   letter-spacing: 1.25px;
+   pointer-events: none;
+   cursor: not-allowed;
 }
 
 #cloud-icon2 {
@@ -114,6 +122,8 @@
     /* margin-top:20px; */
     width:97px;
     transform: translateX(-50%) translateY(-50%);
+    pointer-events: none;
+    cursor:none;
     
 
 }

@@ -27,17 +27,26 @@
   <div class="hero-body">
     <div class="container has-text-centered">
       <div>
-        <b-field label="Username"
+        <!-- <b-field label="Username"
             type="is-success"
             message="This username is available">
             <input type="text" v-model="username" value="username" maxlength="30">
-        </b-field>
+        </b-field> -->
+        <field class="labels" label="Create Username:">
+          <h4>Enter Username:</h4>
+            <b-input v-model="username" value="ex. Floating_Point" maxlength="30"></b-input>
+        </field>
 
-        <b-field label="Password"
+        <field class="labels" label="Create Password:">
+          <h4>Enter Password:</h4>
+            <b-input value="123" v-model="password" type="password" maxlength="30"></b-input>
+        </field>
+
+        <!-- <b-field label="Password"
             type="is-warning"
             :message="['Password is too short', 'Password must have at least 8 characters']">
             <input type="password" v-model="password" value='123' maxlength="30">
-        </b-field>
+        </b-field> -->
             <button class="button is-danger" @click="handleLogin">Log In</button>
         </div>
     </div>

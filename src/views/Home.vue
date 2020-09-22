@@ -12,15 +12,13 @@ import Header from '../components/Header.vue'
 // @ is an alias to /src
 export default {
   name: 'Home',
-  // props:['URL'],
   components: {
     Header,
   },
     data:function(){
     return {
-      URL:'https://p4-app.herokuapp.com',
+      URL:'http://localhost:8000',
+      }
     }
-}
-}
-
+  }
 </script>

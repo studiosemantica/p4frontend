@@ -7,7 +7,7 @@
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" id="logo-landing">
-            <svg id="cloud-icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cloud" 
+            <svg id="cloud-icon" href="#" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cloud" 
             class="svg-inline--fa fa-cloud fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 100 100">
             <path fill="white" d="M537.6 226.6c4.1-10.7 6.4-22.4 6.4-34.6 0-53-43-96-96-96-19.7 0-38.1 

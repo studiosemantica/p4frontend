@@ -218,7 +218,17 @@ export default {
 .Messages-Window {
   display: flex;
   flex-direction: row;
-  margin: 70px;
+  margin: 80px;
+}
+
+@media only screen and (max-width: 600px) {
+
+.Messages-Window {
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+}
+
 }
 
 #list {
@@ -227,7 +237,7 @@ export default {
 }
 
 .conversation-div {
-  width: 500px;
+  width: 400px;
   height:350px;
   /* margin:0 auto; */
   text-align: left;
@@ -235,7 +245,7 @@ export default {
 
 .conversation-view {
   margin-bottom: 20px;
-  width: 500px;
+  width: 400px;
   height: 350px;
   overflow-y: auto;
 }

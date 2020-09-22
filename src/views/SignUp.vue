@@ -27,21 +27,20 @@
   <div class="hero-body">
     <div class="container has-text-centered">
       <div>
-        <b-field label="Create Username:"
-            type="is-success"
-            message="This username is available">
+        <field class="labels" label="Create Username:">
+          <h4>Create Username:</h4>
             <b-input v-model="username" value="johnsilver" maxlength="30"></b-input>
-        </b-field>
+        </field>
 
-        <b-field label="Enter e-mail:">
+        <field class="labels" label="Enter e-mail:">
+          <h4>E-mail Address:</h4>
             <b-input v-model="email" value="happy@gmail.com" maxlength="40"></b-input>
-        </b-field>
+        </field>
 
-        <b-field label="Create Password:"
-            type="is-warning"
-            :message="['Password is too short', 'Password must have at least 8 characters']">
+        <field class="labels" label="Create Password:">
+          <h4>Create Password:</h4>
             <b-input value="123" v-model="password" type="password" maxlength="30"></b-input>
-        </b-field>
+        </field>
           <button class="button is-danger" @click="handleSignup">Sign Up</button>
         </div>
     </div>
@@ -103,3 +102,17 @@ export default {
   }
 }
 </script>
+
+<style>
+
+label {
+  font:arial;
+  color:white;
+}
+
+h4 {
+  color:white;
+}
+
+
+</style>
