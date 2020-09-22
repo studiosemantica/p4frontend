@@ -59,11 +59,15 @@ export default {
 
 <style>
 
+  body, html { overflow-x:hidden; }
+
 @media only screen and (max-width: 375px) {
   body {
     width:375px;
   }
 }
+
+
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

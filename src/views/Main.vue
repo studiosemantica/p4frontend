@@ -268,24 +268,32 @@ export default {
 }
 
 .conversation-div {
+  background-color:rgba(185, 185, 185, 0.171);
   width: 350px;
   height:350px;
-  margin:20px 0px 20px 0px;
-  padding:30px 0px 30px 0px;
+  margin:10px 0px 0px 0px;
+  padding:30px 0px 0px 0px;
   text-align: left;
-  border-top:1px solid grey;
+  border-top:1px solid rgb(158, 158, 158);
+	position: -webkit-sticky;
+	position: sticky;
+	bottom: 0px;
   
 }
 
 .conversation-view{
   height:300px;
-overflow-y:auto
+  overflow-y:auto;
+	position: -webkit-sticky;
+	position: sticky;
+	bottom: 0px;
+  
 }
 
 
 #conversation {
-  padding-bottom:60px;
-  padding-top:20px;
+  padding-bottom:2px;
+  padding-top:2px;
 }
 
 .textarea {
@@ -353,8 +361,12 @@ overflow-y:auto
 
 .conversation-media {
   width: 380px;
-  margin:40px;
+  margin:0px;
   overflow-y: auto;
+}
+
+#conversation {
+  padding:2px;
 }
 
 #list-content {
@@ -371,9 +383,9 @@ overflow-y:auto
 }
 
 .list-divs:hover { 
-background-color: rgb(230, 230, 230);
+background-color:rgba(190, 190, 190, 0.171);
 margin-left:27px;
-border-left: 3px solid rgb(216, 115, 0);
+border-left: 2px solid rgb(245, 88, 26);
 animation-name: example;
 animation-duration:.7s;
 }

@@ -1,6 +1,6 @@
 <template>
 
-    <b-navbar class="navbar">
+    <b-navbar class="navbar" id="sticky">
         <template slot="brand">
                 <b-navbar-item class="icon-div">
                 <a class="navbar-item">
@@ -89,6 +89,11 @@
     padding-top:20px;
 }
 
+#sticky {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
 
 .navbar {
     
