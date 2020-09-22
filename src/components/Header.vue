@@ -7,8 +7,6 @@
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" id="logo-landing">
-            <!-- <img src="../assets/cloud.png" alt="Logo"> -->
-            <!-- <i class="fas fa-cloud"></i> -->
             <svg id="cloud-icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cloud" 
             class="svg-inline--fa fa-cloud fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 100 100">
@@ -17,15 +15,7 @@
             0 273.2 0 336c0 79.5 64.5 144 144 144h368c70.7 0 128-57.3 128-128 0-61.9-44-113.6-102.4-125.4z">
             </path></svg>
             <p id="logo-text">CLOUD MSG</p>
-            
-            <!-- <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo"> -->
-          </a>
-          <span class="navbar-burger burger" id="burger" data-target="navbarMenuHeroC">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-         
+          </a> 
         </div>
    
       </div>
@@ -115,6 +105,7 @@ export default {
 
 .hero {
   background-image: url("../assets/Nightclub-Photography-4.jpg");
+  background-color: black;
   /* background-repeat: no-repeat; */
   background-size: cover;
     /* background-size: 200%; */
@@ -133,6 +124,13 @@ export default {
   
 width:150px;
  height:30 rem;
+
+}
+
+.navbar-item:hover {
+    background-color: unset !important;
+    color: unset !important;
+  
 
 }
 

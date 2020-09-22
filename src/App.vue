@@ -1,9 +1,6 @@
 <template>
   <div id="app">      
     <div id="nav">
-       <!-- <router-link to="/Page2">Page2</router-link>
-       <router-link to="/Home">Home</router-link>
-       <router-link to="/Login">Login</router-link> -->
        <router-view @loggedIn="login($event)" @logout="logout" @SignedUp="signUp"/>
     </div>
       <!-- <Footer/> -->
