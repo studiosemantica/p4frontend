@@ -259,26 +259,80 @@ export default {
 
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 375px) {
 
 .Messages-Window {
   display: flex;
   flex-direction: column;
-  margin: 40px;
+  margin: 5px;
 }
 
 .conversation-div {
-  width: 250px;
+  width: 350px;
   height:350px;
-  margin:25px 0px 0px 10px;
+  margin:20px 0px 20px 0px;
+  padding:30px 0px 30px 0px;
   text-align: left;
+  border-top:1px solid grey;
+  
+}
+
+.conversation-view{
+  height:300px;
+overflow-y:auto
+}
+
+
+#conversation {
+  padding-bottom:60px;
+  padding-top:20px;
 }
 
 .textarea {
+  width:300px;
+  margin:0 auto;
   margin-bottom:70px;
 }
 
+#list-content {
+  width: 300px;
+  margin:0px 50px 0px 50px;
+  padding-right:50px;
 }
+
+.avatar-left {
+  width: 300px;
+  margin:0px auto;
+  /* padding-left:50px; */
+}
+}
+
+/* .media-left {
+  width: 300px;
+  margin:0px auto;
+
+
+}
+
+
+.list-divs { background-color: #ffffff;
+  width: 250px;
+  height:45px;
+  margin:50px auto;
+  /* text-align: left;    */
+
+
+/* .conversation-view {
+  width: 350px;
+  height: 350px;
+  margin:20px auto;
+  overflow-y: auto;
+} */ 
+
+
+
+
+@media only screen and (min-width: 875px) {
 
 .conversation-div {
   width: 380px;
@@ -296,6 +350,7 @@ export default {
 
 
 
+
 .conversation-media {
   width: 380px;
   margin:40px;
@@ -304,6 +359,8 @@ export default {
 
 #list-content {
   padding:10px;
+}
+
 }
 
 

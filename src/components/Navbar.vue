@@ -104,7 +104,9 @@
   padding-bottom:20px;
   width: 80px;
   /* height: 100px; */
-  background-color: rgb(221, 86, 36);
+  /* background-color: rgb(221, 86, 36); */
+  background: #f50;
+  background: linear-gradient(#f70,#f30);
   /* animation-name: example;
   animation-duration: 10s; */
 }

@@ -3,7 +3,7 @@
 <section class="hero is-success is-fullheight">
   <!-- Hero head: will stick at the top -->
   <div class="hero-head">
-    <header class="navbar">
+    <!-- <header class="navbar"> -->
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" id="logo-landing">
@@ -20,7 +20,7 @@
             </a>
         </div>
       </div>
-    </header>
+    <!-- </header> -->
   </div>
 
   <!-- Hero content: will be in the middle -->

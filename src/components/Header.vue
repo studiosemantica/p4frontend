@@ -1,11 +1,11 @@
 <template>
 
-<section class="hero is-success is-fullheight">
+<section class="hero is-fullheight">
   <!-- Hero head: will stick at the top -->
   <div class="hero-head">
     <header class="navbar">
       <div class="container">
-        <div class="navbar-brand">
+        <!-- <div class="navbar-brand"> -->
           <a class="navbar-item" id="logo-landing">
             <svg id="cloud-icon" href="#" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cloud" 
             class="svg-inline--fa fa-cloud fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" 
@@ -16,7 +16,7 @@
             </path></svg>
             <p id="logo-text">CLOUD MSG</p>
           </a> 
-        </div>
+        <!-- </div> -->
    
       </div>
     </header>
@@ -62,6 +62,7 @@ export default {
 
 <style>
 
+
 #logo-landing {
     display:flex;
     flex-direction:column;
@@ -93,8 +94,10 @@ export default {
     width:97px;
     transform: translateX(-50%) translateY(-50%);
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 #title {
+  font-family: 'Roboto', sans-serif;
+  color:white;
   font-size:25px;
   margin:160px -30px 10px -30px;
 
@@ -102,7 +105,7 @@ export default {
 
 .header {
     width: 90%;
-    margin: 0;
+    margin: 0px;
 }
 
 .hero {
@@ -119,7 +122,7 @@ export default {
   object-position: 110% 120%;   */
   height: 710px;
   /* object-fit: none; */
-  background-position: -440px 0px;
+  background-position: -440px -0px;
 }
 
 #burger {
