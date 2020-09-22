@@ -22,7 +22,7 @@ export default {
       loggedIn: false,
       signedUp: false,
       tokens: {},
-      URL:'http://localhost:8000',
+      URL:'https://p4-app.herokuapp.com',
     }
   },
   methods: {
